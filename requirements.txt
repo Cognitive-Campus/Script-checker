@@ -1,0 +1,9 @@
+pdf2image
+python-dotenv
+langchain
+langchain-community
+gradio_client
+langchain-groq
+langchain-google-genai
+pillow
+google-generativeai
