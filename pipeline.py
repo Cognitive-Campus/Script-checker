@@ -18,13 +18,13 @@ llm = ChatGroq(temperature=0, model_name="mixtral-8x7b-32768")
 
 def do_ocr(img_blob):
     model = genai.GenerativeModel("gemini-pro-vision")
-    response = model.generate_content(img_blob)
+    response = model.generate_content(["Extract the text as exactly as from the image", img_blob])
     return response.text
 
 def generate_response(question, answer):
-  prompt = PromptTemplate(template=template, input_variables=["question","answer"])
+  prompt = PromptTemplate(template=template, input_variables=["question","answer", "rating"])
   llm_chain = LLMChain(prompt=prompt, llm=llm)
-  response = llm_chain.invoke({"question":question, "answer":answer})
+  response = llm_chain.invoke({"question":question, "answer":answer, "rating":20})
   return response
 
 def process_images(question_img_path, answer_img_path):
@@ -40,7 +40,7 @@ def process_images(question_img_path, answer_img_path):
 
 
 # Example usage:
-question_img_blob = R"D:\fyp\ai models\script checker\Screenshot 2022-09-30 023709.png"
+question_img_blob = R"D:\fyp\ai models\script checker\SRE.jpg"
 answer_img_blob = R"D:\fyp\ai models\script checker\SRE.jpg"
 response, question_text, answer_text = process_images(question_img_blob, answer_img_blob)
 

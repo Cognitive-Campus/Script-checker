@@ -1,24 +1,3 @@
-#! Standalone script that just takes in extract OCR text and returns a rating with a reason
-# in json format
-
-#! Creatting a merged report from the OCR text WILL BE FROM THE WEBSITE END
-
-#! So this is just a simple AI micro-service that takes in an image as input and gives an output text as the rating for that image, with the reason. Now the website, will manage every user's uploaded image and the rating for that image in MongoDB. I was wondering if we could do this:
-
-#! Teacher clicks on SCRIPT CHECKER 
-#! Teacher sees an interface with a button saying "ADD AN IMAGE TO CHECK". When the teacher clicks on that image, they can upload image (or multiple images but it should be only one question at a time) and then the teacher clicks on "CHECK".
-#! The teacher sees the rating and the reason for the rating.
-#! The teacher can do this multiple times by clciking again the "ADD AN IMAGE TO CHECK" button and then clicking on "CHECK" again.
-#! The teacher can then click on "ADD TO REPORT" and all checked images will be added to the merged report. The teacher can then download the merged report.
-
-#! OR
-
-#! The teacher clicks on the script checker
-#! The teacher can click on new project (and name it to the SUBJECT NAME)
-#! Teacher has to upload a pdf of question ppr for that project and we will extract the questions and their marks and store them for that project.
-#! Inside the project, the teacher sees a dashboard with a excel like interface, one column containing question name, another column containing the student roll no, and another column containing the uploaded image option containing the student's answer. The teacher then clicks on "CHECK" and then a third column will be populated containing the rating and reason for that image. 
-#! The teacher can click on "ADD ANOTHER QUESTION" and then the teacher can upload another image and then click on "CHECK" and then the rating and reason will be populated in the third column.
-#! At the end, once the teacher has done uploading all answer images of that subject for all students, they can click "REPORT GENERATE", and then we will create a report for every student roll no. This will work by looking at the student's roll no column and then creating a report for every student roll no. The teacher can then download the report for every student roll no.
 
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_groq import ChatGroq
